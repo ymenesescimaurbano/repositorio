@@ -1,0 +1,1770 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/15/2019 2:42:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EQUIPO1-PC"
+  DTS:CreatorName="equipo1-PC\equipo1"
+  DTS:DTSID="{718F6984-6091-4D59-9991-80A469668235}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{FB00B2B3-6204-414C-A780-30EDB0FD89AB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{3ACBBC75-82A0-4109-A02F-94A3A6C26DB1}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\equipo1\Desktop\ArchivosOrigen\CARGA INICIAL.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E698A221-9D45-468A-AA4A-BF5538D419A3}"
+      DTS:ObjectName="EQUIPO1-PC.CIMAURBANO.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EQUIPO1-PC;User ID=sa;Initial Catalog=CIMAURBANO;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbrQkeAihSk+aPqXyH4A3ggAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC3hArZ+jQKp9kpToxevscm0489QG58Y8KFxdtCHeH4yQAAAAAOgAAAAAIAACAAAAA/q0atlczSo69NcygD6tk8+RJIRclthFgUeaMLxrbJMRAAAADj7T+JhIHxq5oz6ULS/WTTQAAAAP2BEUVHryct7xd7lyBHzfbgU/Ql7XryvaNKJLvuQC1PpJsdXa+IWgfU3ZSKkg2mqmS2ITBmdDH2gr7RNYrKpuA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40D7C3BB-E600-4540-915D-549AB95B7F76}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Fecha">
+      <DTS:VariableValue
+        DTS:DataType="7">2/15/2019 3:32:36 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos ORCIA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{15146701-E3D1-47C4-A2EE-9DBAB161AEEF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos ORCIA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos ORCIA\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de columna derivada].Columns[derFecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de columna derivada].Columns[derFecha]"
+                      name="derFecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::Fecha]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::Fecha]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[rut_empresa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="rut_empresa"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[rut_empresa]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre_empresa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_empresa"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre_empresa]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orciarut_empresa]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orciarut_empresa]"
+                      name="orciarut_empresa"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[rut_empresa]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orcianombre_empresa]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orcianombre_empresa]"
+                      name="orcianombre_empresa"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre_empresa]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ORCIA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orciarut_empresa]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="orciarut_empresa"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RUT]"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orciarut_empresa]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orcianombre_empresa]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="orcianombre_empresa"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orcianombre_empresa]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[derFecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="derFecha"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FEREGISTRO]"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de columna derivada].Columns[derFecha]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDORCIA]"
+                      dataType="i4"
+                      name="IDORCIA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RUT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="RUT" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DIRECCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="DIRECCION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DIRCORREOTRANFBCO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DIRCORREOTRANFBCO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FEREGISTRO]"
+                      dataType="dbTimeStamp"
+                      name="FEREGISTRO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[LOGO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="LOGO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CODINTERFAZ" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">ORCIA$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO]"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO]"
+                      name="CODIGO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[rut_empresa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[rut_empresa]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[rut_empresa]"
+                      name="rut_empresa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre_empresa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nombre_empresa]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nombre_empresa]"
+                      name="nombre_empresa"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO]"
+                      dataType="r8"
+                      name="CODIGO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[rut_empresa]"
+                      dataType="wstr"
+                      length="255"
+                      name="rut_empresa" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nombre_empresa]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre_empresa" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO]"
+                      name="CODIGO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[rut_empresa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[rut_empresa]"
+                      name="rut_empresa" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nombre_empresa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nombre_empresa]"
+                      name="nombre_empresa" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos ORCIA.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos ORCIA.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos ORCIA\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos ORCIA.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos ORCIA\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos ORCIA\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos ORPAIS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{CC4FC068-B7E9-4609-9B23-1907D2EC0780}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos ORPAIS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[NOMBRE PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMBRE PAIS"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE PAIS]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CODIGO INTERFAZ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODIGO INTERFAZ"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisNOMBREPAIS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisNOMBREPAIS]"
+                      name="orpaisNOMBREPAIS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE PAIS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisCODIGOINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisCODIGOINTERFAZ]"
+                      name="orpaisCODIGOINTERFAZ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ORPAIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orpaisNOMBREPAIS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="orpaisNOMBREPAIS"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisNOMBREPAIS]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orpaisCODIGOINTERFAZ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="orpaisCODIGOINTERFAZ"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orpaisCODIGOINTERFAZ]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDORPAIS]"
+                      dataType="i4"
+                      name="IDORPAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DENACIONALIDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="DENACIONALIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CODINTERFAZ" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">ORPAIS$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE PAIS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE PAIS]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE PAIS]"
+                      name="NOMBRE PAIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE PAIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODIGO INTERFAZ" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE PAIS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE PAIS]"
+                      name="NOMBRE PAIS" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos ORPAIS.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos ORPAIS.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos ORPAIS\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos ORPAIS\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos ORREGION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{26BF53CE-9E89-4135-B5DD-6AEC71721498}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos ORREGION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[NOMBRE REGION]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMBRE REGION"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE REGION]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CODIGO INTERFAZ]"
+                      cachedDataType="r8"
+                      cachedName="CODIGO INTERFAZ"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionNOMBREREGION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionNOMBREREGION]"
+                      name="orregionNOMBREREGION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE REGION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionCODIGOINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionCODIGOINTERFAZ]"
+                      name="orregionCODIGOINTERFAZ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ORREGION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[EQUIPO1-PC.CIMAURBANO.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orregionNOMBREREGION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="orregionNOMBREREGION"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionNOMBREREGION]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orregionCODIGOINTERFAZ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="orregionCODIGOINTERFAZ"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos].Columns[orregionCODIGOINTERFAZ]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDORREGION]"
+                      dataType="i4"
+                      name="IDORREGION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDORPAIS]"
+                      dataType="i4"
+                      name="IDORPAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CODINTERFAZ" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">ORREGION$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE REGION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE REGION]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE REGION]"
+                      name="NOMBRE REGION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE REGION]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      name="CODIGO INTERFAZ" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[F3]"
+                      dataType="wstr"
+                      length="255"
+                      name="F3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE REGION]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE REGION]"
+                      name="NOMBRE REGION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos ORREGION.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos ORREGION.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos ORREGION\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos ORREGION\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{98802B63-D0C3-44B0-8620-0E30A7479E5A}"
+      DTS:From="Package\Tarea Flujo de datos ORPAIS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Flujo de datos ORREGION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{88B3C6D3-0BA5-4D8E-B768-0AD850A75E46}"
+      DTS:From="Package\Tarea Flujo de datos ORREGION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Tarea Flujo de datos ORCIA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tarea Flujo de datos ORPAIS"
+          TopLeft="527,27" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Tarea Flujo de datos ORREGION"
+          TopLeft="531,124" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Tarea Flujo de datos ORCIA"
+          TopLeft="531,220" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="648.25,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="648.5,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos ORPAIS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Tarea Flujo de datos ORPAIS\Origen de Excel"
+          TopLeft="506.5,48.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos ORPAIS\Conversión de datos"
+          TopLeft="500,172" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORPAIS.Paths[Salida de origen de Excel]"
+          TopLeft="586.25,90.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81.5"
+              Start="0,0"
+              End="0,74">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB"
+          TopLeft="499.5,295.5" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORPAIS.Paths[Salida de conversión de datos]"
+          TopLeft="586.5,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81.5"
+              Start="0,0"
+              End="0,74">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORPAIS\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORPAIS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos ORREGION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Tarea Flujo de datos ORREGION\Origen de Excel"
+          TopLeft="536.5,27.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos ORREGION\Conversión de datos"
+          TopLeft="526,143" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORREGION.Paths[Salida de origen de Excel]"
+          TopLeft="614.25,69.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.5"
+              Start="0,0"
+              End="0,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB"
+          TopLeft="527,253" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORREGION.Paths[Salida de conversión de datos]"
+          TopLeft="613.25,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORREGION\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORREGION\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos ORCIA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Tarea Flujo de datos ORCIA\Origen de Excel"
+          TopLeft="592.5,29.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos ORCIA\Conversión de datos"
+          TopLeft="584,128" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORCIA.Paths[Salida de origen de Excel]"
+          TopLeft="671.25,71.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.5"
+              Start="0,0"
+              End="0,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB"
+          TopLeft="586,299" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Tarea Flujo de datos ORCIA\Columna derivada"
+          TopLeft="588,213" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORCIA.Paths[Salida de conversión de datos]"
+          TopLeft="671.75,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos ORCIA.Paths[Salida de columna derivada]"
+          TopLeft="671,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORCIA\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos ORCIA\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
